@@ -50,4 +50,76 @@ public class BookingDetailsPage {
 
         System.out.println("'Mr.' selected using Keyboard!");
     }
+    public void enterTravelDetails() throws InterruptedException {
+    	//Enter first Name
+        By firstNameXpath = By.xpath("(//input[@aria-labelledby='name.first'])[2]");
+        WebElement firstName = driver.findElement(firstNameXpath);
+        firstName.sendKeys("Atul");
+        
+        //Enter last name
+        By lastNameXpath = By.xpath("(//input[@aria-labelledby='name.last'])[2]");
+        WebElement lastName = driver.findElement(lastNameXpath);
+        lastName.sendKeys("Mishra");
+        
+        //Select Day
+        WebElement day = driver.findElement(By.xpath("(//select[@data-testid='day-datepicker'])[1]"));
+        Select selectDay = new Select(day);
+        selectDay.selectByVisibleText("5"); 
+        
+        //Select Month
+        WebElement month = driver.findElement(By.xpath("(//select[@data-testid='month-datepicker'])[1]"));
+        Select selectMonth = new Select(month);
+        selectMonth.selectByVisibleText("January"); 
+        
+        //Select Year
+        WebElement year = driver.findElement(By.xpath("(//select[@data-testid='year-datepicker'])[1]"));
+        Select selectYear = new Select(year);
+        selectYear.selectByVisibleText("1999"); 
+        
+        //Select Nationality
+        WebElement nationality = driver.findElement(By.xpath("//div[contains(@aria-labelledby,'nationality')]//select"));
+        Select selectNationality = new Select(nationality);
+        selectNationality.selectByVisibleText("India"); 
+        
+        
+    }
+    public void enterPertionalDetails() throws InterruptedException {
+    	Thread.sleep(3000);
+    	  //Scroll
+    	  WebElement scroll = driver.findElement(By.xpath("//div[contains(text(),'Passport Information')]"));
+    	  Actions actions = new Actions(driver);
+    	  actions.moveToElement(scroll).perform();
+    	    
+    	 By xpathLocator = By.xpath("//div[contains(text(),'Passport Information')]");
+         WebElement element = driver.findElement(xpathLocator);
+         element.isDisplayed();
+         
+         
+         //Enter Passport Number
+         By passportXpath = By.xpath("//input[@aria-labelledby='travelerID.number']");
+         WebElement passportNumber = driver.findElement(passportXpath);
+         passportNumber.sendKeys("A1234567");
+         
+         //Select Country of issue
+         WebElement issueCountry = driver.findElement(By.xpath("//div[@aria-labelledby='travelerID.countryOfIssuance']//select"));
+         Select selectIssueCountry = new Select(issueCountry);
+         selectIssueCountry.selectByVisibleText("India"); 
+         
+         //Select Day
+         WebElement day = driver.findElement(By.xpath("(//select[@data-testid='day-datepicker'])[2]"));
+         Select selectDay = new Select(day);
+         selectDay.selectByVisibleText("10"); 
+         
+         //Select Month
+         WebElement month = driver.findElement(By.xpath("(//select[@data-testid='month-datepicker'])[2]"));
+         Select selectMonth = new Select(month);
+         selectMonth.selectByVisibleText("January"); 
+         
+         //Select Year
+         WebElement year = driver.findElement(By.xpath("(//select[@data-testid='year-datepicker'])[2]"));
+         Select selectYear = new Select(year);
+         selectYear.selectByVisibleText("2033"); 
+         System.out.println("year is selected");
+         
+    }
     }

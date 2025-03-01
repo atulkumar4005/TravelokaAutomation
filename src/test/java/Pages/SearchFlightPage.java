@@ -61,6 +61,27 @@ public class SearchFlightPage {
         clickElement(dropdownOption1);
         System.out.println("Selected To Location: " + toLocation);
     }
+    
+    
+    public boolean selectData(String day,String month, String year) {
+   	 
+       driver.findElement(By.xpath("//input[@data-testid='departure-date-input']")).click();
+
+      
+       while (true) {
+           WebElement monthYearElement = driver.findElement(By.xpath("//h3[contains(text(),'March 2025')]"));
+           if (monthYearElement.isDisplayed()) {
+               break; 
+           }
+           driver.findElement(By.xpath("//div[@data-testid='mds-calendar-next-month']")).click(); // Click next month button
+       }
+
+       // Select the date "4" from the calendar
+       By xpathLocator = By.xpath("//div[@data-testid='date-cell-" + day + "-" + month + "-" + year + "']");
+       WebElement dateElement = driver.findElement(xpathLocator);
+       dateElement.click();
+       return true;
+   }
 
 
 

@@ -34,7 +34,7 @@ public class Base {
         getDriver().get("https://www.traveloka.com/en-en");
     }
 
-    @AfterClass  // ✅ Browser sirf ek baar close hoga
+    @AfterClass  
     public void teardown() {
         if (getDriver() != null) {
             getDriver().quit();

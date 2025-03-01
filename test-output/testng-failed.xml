@@ -5,11 +5,14 @@
     <classes>
       <class name="Test.DashboardTest">
         <methods>
+          <include name="testSearchFlight"/>
+          <include name="testFilterAndVerifySearchResults"/>
           <include name="setup"/>
           <include name="teardown"/>
           <include name="setupSuite"/>
           <include name="cleanupSuite"/>
           <include name="testEnterBookingDetails"/>
+          <include name="testChooseAndSelectFlight"/>
         </methods>
       </class> <!-- Test.DashboardTest -->
     </classes>
