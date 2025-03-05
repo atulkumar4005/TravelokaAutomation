@@ -122,15 +122,35 @@ public class DashboardTest extends Base {
    
     @Test(priority = 6)
     public void testEnterBookingDetails() {
-        BookingDetailsPage bookingPage = new BookingDetailsPage(getDriver());
-        bookingPage.enterFirstName("Atul");
-        bookingPage.enterLastName("Kumar");
-        bookingPage.selectCountryCode("India (+91)");
-        bookingPage.enterPhoneNumber("10000000000");
-        bookingPage.enterEmail("atul1000@gmail.com");
-       // bookingPage.selectTitle("mr");
+        try {
+            BookingDetailsPage bookingPage = new BookingDetailsPage(getDriver());
 
-        System.out.println("✅ Booking details entered successfully!");
+            // Enter Personal Information
+            bookingPage.enterFirstName("Atul");
+            bookingPage.enterLastName("Kumar");
+            bookingPage.selectCountryCode("India (+91)");
+            bookingPage.enterPhoneNumber("10000000000");
+            bookingPage.enterEmail("atul1000@gmail.com");
+            
+
+            // Select Title (Dropdown)
+            bookingPage.selectTitleUsingKeys();
+
+            // Enter Travel Details
+            bookingPage.enterTravelDetails();  
+
+            // Enter Passport Details
+            bookingPage.enterPertionalDetails();  
+
+            // Click on Continue Button
+            bookingPage.clickContinueButton();
+
+            System.out.println("Booking details entered successfully!");
+        } catch (InterruptedException e) {
+            System.out.println(" Error: " + e.getMessage());
+            Thread.currentThread().interrupt(); 
+        }
     }
+
 
 }
